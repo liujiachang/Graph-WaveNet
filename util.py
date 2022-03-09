@@ -155,6 +155,7 @@ def load_dataset(dataset_dir, batch_size, valid_batch_size= None, test_batch_siz
     data['val_loader'] = DataLoader(data['x_val'], data['y_val'], valid_batch_size)
     data['test_loader'] = DataLoader(data['x_test'], data['y_test'], test_batch_size)
     data['scaler'] = scaler
+    del data['x_train']
     return data
 
 def masked_mse(preds, labels, null_val=np.nan):
